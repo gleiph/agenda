@@ -5,16 +5,12 @@
  */
 package br.ufjf.dcc.gmr.agenda.view;
 
+import br.ufjf.dcc.gmr.agenda.control.RemoverContato;
 import br.ufjf.dcc.gmr.agenda.control.SalvarContato;
 import br.ufjf.dcc.gmr.agenda.model.Contato;
-import com.google.gson.Gson;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.List;
 import javax.swing.BorderFactory;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
@@ -95,10 +91,11 @@ public class Tela extends JFrame {
         lista.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         jpContatos.add(new JScrollPane(lista), BorderLayout.CENTER);
 
-//        jpContatos.add(listaPanel, BorderLayout.CENTER);
         JPanel botaoPainel = new JPanel();
         JButton btnAdicionar = new JButton("Adicionar");
         JButton btnRemover = new JButton("Remover");
+        btnRemover.addActionListener(new RemoverContato(this));
+        
         botaoPainel.setLayout(new GridLayout(1, 2));
         botaoPainel.add(btnAdicionar);
         botaoPainel.add(btnRemover);

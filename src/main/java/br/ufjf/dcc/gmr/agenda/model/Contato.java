@@ -56,6 +56,4 @@ public class Contato {
         return this.nome;
     }
     
-    
-    
 }
