@@ -50,5 +50,12 @@ public class Contato {
     public void setDetalhe(String detalhe) {
         this.detalhe = detalhe;
     }
+
+    @Override
+    public String toString() {
+        return this.nome;
+    }
+    
+    
     
 }
