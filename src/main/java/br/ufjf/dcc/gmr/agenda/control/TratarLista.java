@@ -14,22 +14,25 @@ import javax.swing.event.ListSelectionListener;
  *
  * @author gleiph
  */
-public class TratarLista implements ListSelectionListener{
+public class TratarLista implements ListSelectionListener {
 
-    
-    Tela tela; 
+    Tela tela;
 
     public TratarLista(Tela tela) {
         this.tela = tela;
     }
-    
+
     @Override
     public void valueChanged(ListSelectionEvent e) {
         int firstIndex = tela.getLista().getSelectedIndex();
-        Contato elementAt = tela.getLista().getModel().getElementAt(firstIndex);
-        tela.getjNome().setText(elementAt.getNome());
-        tela.getjTelefone().setText(elementAt.getTelefone());
-        tela.getjDescricao().setText(elementAt.getDetalhe());
+
+        if (firstIndex != -1) {
+
+            Contato elementAt = tela.getLista().getModel().getElementAt(firstIndex);
+            tela.getjNome().setText(elementAt.getNome());
+            tela.getjTelefone().setText(elementAt.getTelefone());
+            tela.getjDescricao().setText(elementAt.getDetalhe());
+        }
     }
-    
+
 }

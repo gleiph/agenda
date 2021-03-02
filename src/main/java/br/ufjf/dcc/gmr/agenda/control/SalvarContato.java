@@ -39,7 +39,7 @@ public class SalvarContato implements ActionListener{
         
         tela.getLista().setModel(model);
         tela.repaint();
-       
+        
     }
     
 }

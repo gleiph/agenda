@@ -5,6 +5,7 @@
  */
 package br.ufjf.dcc.gmr.agenda.view;
 
+import br.ufjf.dcc.gmr.agenda.control.LimparFormulario;
 import br.ufjf.dcc.gmr.agenda.control.RemoverContato;
 import br.ufjf.dcc.gmr.agenda.control.SalvarContato;
 import br.ufjf.dcc.gmr.agenda.control.TratarLista;
@@ -108,7 +109,7 @@ public class Tela extends JFrame {
     private void configuraFormulario() {
         int size = 15;
         JPanel jpFormulario = new JPanel();
-        jpFormulario.setBorder(BorderFactory.createTitledBorder("Formulario"));
+        jpFormulario.setBorder(BorderFactory.createTitledBorder("Formulário"));
 
         jpFormulario.add(new JLabel("Nome:"));
         jNome = new JTextField(size);
@@ -124,9 +125,12 @@ public class Tela extends JFrame {
 
         JButton btnSalvar = new JButton("Salvar");
         btnSalvar.addActionListener(new SalvarContato(this));
-
         jpFormulario.add(btnSalvar);
 
+        JButton btnLimpar = new JButton("Limpar");
+        btnLimpar.addActionListener(new LimparFormulario(this));
+        jpFormulario.add(btnLimpar);
+        
         principal.add(jpFormulario, BorderLayout.CENTER);
 
     }
