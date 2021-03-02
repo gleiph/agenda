@@ -15,23 +15,23 @@ import javax.swing.DefaultListModel;
  *
  * @author gleiph
  */
-public class RemoverContato implements ActionListener{
+public class RemoverContato implements ActionListener {
 
     private Tela tela;
 
     public RemoverContato(Tela tela) {
         this.tela = tela;
     }
-    
-    
-    
+
     @Override
     public void actionPerformed(ActionEvent e) {
-        DefaultListModel<Contato> model = (DefaultListModel<Contato>) tela.getLista().getModel();
+
         int selectedIndex = tela.getLista().getSelectedIndex();
-        model.removeElementAt(selectedIndex);
-        tela.getLista().setModel(model);
-        
+        if (selectedIndex != -1) {
+            DefaultListModel<Contato> model = (DefaultListModel<Contato>) tela.getLista().getModel();
+            model.removeElementAt(selectedIndex);
+            tela.getLista().setModel(model);
+        }
     }
-    
+
 }

@@ -83,11 +83,11 @@ public class Tela extends JFrame {
         JPanel jpContatos = new JPanel();
         jpContatos.setBorder(BorderFactory.createTitledBorder("Contatos"));
         jpContatos.setLayout(new BorderLayout());
-        jpContatos.setPreferredSize(new Dimension(200, 100));
+        jpContatos.setPreferredSize(new Dimension(200, 300));
 
         DefaultListModel<Contato> model = new DefaultListModel<>();
-        model.addElement(new Contato("Gleiph", "3538", "Casa"));
-        model.addElement(new Contato("Maria", "3539", "Casa"));
+//        model.addElement(new Contato("Gleiph", "3538", "Casa"));
+//        model.addElement(new Contato("Maria", "3539", "Casa"));
 
         lista = new JList<>(model);
         lista.setVisible(true);
@@ -96,13 +96,8 @@ public class Tela extends JFrame {
         jpContatos.add(new JScrollPane(lista), BorderLayout.CENTER);
 
         JPanel botaoPainel = new JPanel();
-        JButton btnAdicionar = new JButton("Adicionar");
-        JButton btnRemover = new JButton("Remover");
-        btnRemover.addActionListener(new RemoverContato(this));
 
         botaoPainel.setLayout(new GridLayout(1, 2));
-        botaoPainel.add(btnAdicionar);
-        botaoPainel.add(btnRemover);
         jpContatos.add(botaoPainel, BorderLayout.SOUTH);
 
         principal.add(jpContatos, BorderLayout.WEST);
@@ -125,10 +120,16 @@ public class Tela extends JFrame {
         tfDescricao = new JTextField(size);
         jpFormulario.add(tfDescricao);
 
-        JButton btnSalvar = new JButton("Salvar");
+                
+
+        JButton btnSalvar = new JButton("Adiciona");
         btnSalvar.addActionListener(new SalvarContato(this));
         jpFormulario.add(btnSalvar);
 
+        JButton btnRemover = new JButton("Remove");
+        btnRemover.addActionListener(new RemoverContato(this));
+        jpFormulario.add(btnRemover);
+        
         JButton btnLimpar = new JButton("Limpar");
         btnLimpar.addActionListener(new LimparFormulario(this));
         jpFormulario.add(btnLimpar);
