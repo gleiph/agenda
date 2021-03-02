@@ -24,9 +24,9 @@ public class LimparFormulario implements ActionListener{
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        tela.getjDescricao().setText("");
-        tela.getjNome().setText("");
-        tela.getjTelefone().setText("");
+        tela.getTfDescricao().setText("");
+        tela.getTfNome().setText("");
+        tela.getTfTelefone().setText("");
     }
     
 }

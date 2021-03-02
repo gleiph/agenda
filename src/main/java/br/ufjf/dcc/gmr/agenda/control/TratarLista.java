@@ -29,9 +29,9 @@ public class TratarLista implements ListSelectionListener {
         if (firstIndex != -1) {
 
             Contato elementAt = tela.getLista().getModel().getElementAt(firstIndex);
-            tela.getjNome().setText(elementAt.getNome());
-            tela.getjTelefone().setText(elementAt.getTelefone());
-            tela.getjDescricao().setText(elementAt.getDetalhe());
+            tela.getTfNome().setText(elementAt.getNome());
+            tela.getTfTelefone().setText(elementAt.getTelefone());
+            tela.getTfDescricao().setText(elementAt.getDetalhe());
         }
     }
 

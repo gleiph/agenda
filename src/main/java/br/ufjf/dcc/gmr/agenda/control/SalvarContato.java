@@ -33,9 +33,9 @@ public class SalvarContato implements ActionListener{
         
         model.addElement(
                 new Contato(
-                        tela.getjNome().getText(), 
-                tela.getjTelefone().getText(), 
-                tela.getjDescricao().getText()));
+                        tela.getTfNome().getText(), 
+                tela.getTfTelefone().getText(), 
+                tela.getTfDescricao().getText()));
         
         tela.getLista().setModel(model);
         tela.repaint();

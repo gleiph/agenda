@@ -32,9 +32,9 @@ public class Tela extends JFrame {
 
     JPanel principal;
     private JList<Contato> lista;
-    private JTextField jNome;
-    private JTextField jTelefone;
-    private JTextField jDescricao;
+    private JTextField tfNome;
+    private JTextField tfTelefone;
+    private JTextField tfDescricao;
 
     public JList<Contato> getLista() {
         return lista;
@@ -44,29 +44,31 @@ public class Tela extends JFrame {
         this.lista = lista;
     }
 
-    public JTextField getjNome() {
-        return jNome;
+    public JTextField getTfNome() {
+        return tfNome;
     }
 
-    public void setjNome(JTextField jNome) {
-        this.jNome = jNome;
+    public void setTfNome(JTextField tfNome) {
+        this.tfNome = tfNome;
     }
 
-    public JTextField getjTelefone() {
-        return jTelefone;
+    public JTextField getTfTelefone() {
+        return tfTelefone;
     }
 
-    public void setjTelefone(JTextField jTelefone) {
-        this.jTelefone = jTelefone;
+    public void setTfTelefone(JTextField tfTelefone) {
+        this.tfTelefone = tfTelefone;
     }
 
-    public JTextField getjDescricao() {
-        return jDescricao;
+    public JTextField getTfDescricao() {
+        return tfDescricao;
     }
 
-    public void setjDescricao(JTextField jDescricao) {
-        this.jDescricao = jDescricao;
+    public void setTfDescricao(JTextField tfDescricao) {
+        this.tfDescricao = tfDescricao;
     }
+
+    
 
     private void configuraJanela() {
         this.setSize(500, 300);
@@ -112,16 +114,16 @@ public class Tela extends JFrame {
         jpFormulario.setBorder(BorderFactory.createTitledBorder("Formulário"));
 
         jpFormulario.add(new JLabel("Nome:"));
-        jNome = new JTextField(size);
-        jpFormulario.add(jNome);
+        tfNome = new JTextField(size);
+        jpFormulario.add(tfNome);
 
         jpFormulario.add(new JLabel("Telefone:"));
-        jTelefone = new JTextField(size);
-        jpFormulario.add(jTelefone);
+        tfTelefone = new JTextField(size);
+        jpFormulario.add(tfTelefone);
 
         jpFormulario.add(new JLabel("Descrição:"));
-        jDescricao = new JTextField(size);
-        jpFormulario.add(jDescricao);
+        tfDescricao = new JTextField(size);
+        jpFormulario.add(tfDescricao);
 
         JButton btnSalvar = new JButton("Salvar");
         btnSalvar.addActionListener(new SalvarContato(this));
