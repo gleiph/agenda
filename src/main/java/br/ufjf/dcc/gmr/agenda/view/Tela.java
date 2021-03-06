@@ -5,6 +5,7 @@
  */
 package br.ufjf.dcc.gmr.agenda.view;
 
+import br.ufjf.dcc.gmr.agenda.control.EditarContato;
 import br.ufjf.dcc.gmr.agenda.control.LimparFormulario;
 import br.ufjf.dcc.gmr.agenda.control.RemoverContato;
 import br.ufjf.dcc.gmr.agenda.control.SalvarContato;
@@ -35,6 +36,19 @@ public class Tela extends JFrame {
     private JTextField tfNome;
     private JTextField tfTelefone;
     private JTextField tfDescricao;
+    private int lastIndex;
+
+    public Tela() {
+        this.lastIndex = 0;
+    }
+
+    public int getLastIndex() {
+        return lastIndex;
+    }
+
+    public void setLastIndex(int lastIndex) {
+        this.lastIndex = lastIndex;
+    }
 
     public JList<Contato> getLista() {
         return lista;
@@ -122,17 +136,21 @@ public class Tela extends JFrame {
 
                 
 
-        JButton btnSalvar = new JButton("Adiciona");
+        JButton btnSalvar = new JButton("Adicionar");
         btnSalvar.addActionListener(new SalvarContato(this));
         jpFormulario.add(btnSalvar);
 
-        JButton btnRemover = new JButton("Remove");
+        JButton btnRemover = new JButton("Remover");
         btnRemover.addActionListener(new RemoverContato(this));
         jpFormulario.add(btnRemover);
         
         JButton btnLimpar = new JButton("Limpar");
         btnLimpar.addActionListener(new LimparFormulario(this));
         jpFormulario.add(btnLimpar);
+        
+        JButton btnEditar = new JButton("Editar");
+        btnEditar.addActionListener(new EditarContato(this));
+        jpFormulario.add(btnEditar);
         
         principal.add(jpFormulario, BorderLayout.CENTER);
 

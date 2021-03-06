@@ -28,10 +28,13 @@ public class TratarLista implements ListSelectionListener {
 
         if (firstIndex != -1) {
 
+            
             Contato elementAt = tela.getLista().getModel().getElementAt(firstIndex);
             tela.getTfNome().setText(elementAt.getNome());
             tela.getTfTelefone().setText(elementAt.getTelefone());
             tela.getTfDescricao().setText(elementAt.getDetalhe());
+            
+            tela.setLastIndex(firstIndex);
         }
     }
 
