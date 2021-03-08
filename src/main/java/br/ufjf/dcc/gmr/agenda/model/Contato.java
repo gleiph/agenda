@@ -10,7 +10,9 @@ package br.ufjf.dcc.gmr.agenda.model;
  * @author gleiph
  */
 public class Contato {
-    
+
+    private static int idAtual = 0;
+    private int id;
     private String nome;
     private String telefone;
     private String detalhe;
@@ -19,14 +21,20 @@ public class Contato {
         this.nome = nome;
         this.telefone = telefone;
         this.detalhe = detalhe;
+        this.id = idAtual++;
     }
 
     public Contato() {
         this.nome = "";
         this.telefone = "";
         this.detalhe = "";
+        this.id = idAtual++;
     }
-    
+
+    public int getId() {
+        return id;
+    }
+
     public String getNome() {
         return nome;
     }
@@ -55,5 +63,5 @@ public class Contato {
     public String toString() {
         return this.nome;
     }
-    
+
 }

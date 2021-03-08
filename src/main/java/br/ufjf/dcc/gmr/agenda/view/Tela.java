@@ -6,6 +6,7 @@
 package br.ufjf.dcc.gmr.agenda.view;
 
 import br.ufjf.dcc.gmr.agenda.control.EditarContato;
+import br.ufjf.dcc.gmr.agenda.control.EventoJanela;
 import br.ufjf.dcc.gmr.agenda.control.LimparFormulario;
 import br.ufjf.dcc.gmr.agenda.control.RemoverContato;
 import br.ufjf.dcc.gmr.agenda.control.SalvarContato;
@@ -13,7 +14,6 @@ import br.ufjf.dcc.gmr.agenda.control.TratarLista;
 import br.ufjf.dcc.gmr.agenda.model.Contato;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.awt.GridLayout;
 import javax.swing.BorderFactory;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
@@ -31,7 +31,7 @@ import javax.swing.ListSelectionModel;
  */
 public class Tela extends JFrame {
 
-    JPanel principal;
+    private JPanel principal;
     private JList<Contato> lista;
     private JTextField tfNome;
     private JTextField tfTelefone;
@@ -88,8 +88,10 @@ public class Tela extends JFrame {
         this.setSize(500, 300);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        principal = new JPanel();
-        principal.setLayout(new BorderLayout());
+        this.principal = new JPanel();
+        this.principal.setLayout(new BorderLayout());
+        
+        this.addWindowListener(new EventoJanela(this));
 
     }
 
@@ -109,10 +111,10 @@ public class Tela extends JFrame {
         lista.addListSelectionListener(new TratarLista(this));
         jpContatos.add(new JScrollPane(lista), BorderLayout.CENTER);
 
-        JPanel botaoPainel = new JPanel();
-
-        botaoPainel.setLayout(new GridLayout(1, 2));
-        jpContatos.add(botaoPainel, BorderLayout.SOUTH);
+//        JPanel botaoPainel = new JPanel();
+//
+//        botaoPainel.setLayout(new GridLayout(1, 2));
+//        jpContatos.add(botaoPainel, BorderLayout.SOUTH);
 
         principal.add(jpContatos, BorderLayout.WEST);
     }
@@ -136,9 +138,9 @@ public class Tela extends JFrame {
 
                 
 
-        JButton btnSalvar = new JButton("Adicionar");
-        btnSalvar.addActionListener(new SalvarContato(this));
-        jpFormulario.add(btnSalvar);
+        JButton btnAdicionar = new JButton("Adicionar");
+        btnAdicionar.addActionListener(new SalvarContato(this));
+        jpFormulario.add(btnAdicionar);
 
         JButton btnRemover = new JButton("Remover");
         btnRemover.addActionListener(new RemoverContato(this));
